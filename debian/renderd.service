@@ -1,12 +1,11 @@
 [Unit]
-Description=Renderd
+Description=Mapnik Rendering Daemon
 After=network.target auditd.service
 
 [Service]
-Type=forking
-ExecStart=/etc/init.d/renderd start
-ExecReload=/etc/init.d/renderd restart
-ExecStop=/etc/init.d/renderd stop
+ExecStart=/usr/local/bin/renderd -f -c /usr/local/etc/custom-renderd.conf
+Restart=always
+User=osm
 
 [Install]
 WantedBy=multi-user.target

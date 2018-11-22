@@ -1,5 +1,5 @@
 readme.txt /usr/share/doc/renderd
-debian/renderd.conf /etc
+debian/renderd.conf /etc/renderd
 munin/renderd* /usr/share/munin/plugins
 
 

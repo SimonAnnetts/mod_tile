@@ -17,11 +17,11 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="Mapnik rendering daemon"
 NAME=renderd
 DAEMON=/usr/local/bin/$NAME
-DAEMON_ARGS="-c /usr/local/etc/renderd.conf"
+DAEMON_ARGS="-c /etc/renderd/renderd.conf"
 PIDSOCKDIR=/var/run/$NAME
 PIDFILE=$PIDSOCKDIR/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
-RUNASUSER=renderaccount
+RUNASUSER=osm
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
