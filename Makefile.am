@@ -23,7 +23,7 @@ if !SYSTEM_LIBINIPARSER
     renderd_SOURCES += iniparser3.0b/libiniparser.la
     renderd_LDADD += -Liniparser3.0b/.libs
 endif
-renderd_DATA = renderd-example.conf
+renderd_DATA = renderd-example.conf renderd-esdm-example.conf
 render_speedtest_SOURCES = src/speedtest.cpp src/protocol_helper.c src/render_submit_queue.c src/sys_utils.c
 render_speedtest_LDADD = $(PTHREAD_CFLAGS)
 render_list_SOURCES = src/render_list.c src/sys_utils.c src/protocol_helper.c src/render_submit_queue.c $(STORE_SOURCES)
