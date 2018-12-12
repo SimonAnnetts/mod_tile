@@ -65,6 +65,7 @@
 // Note: This should be a power of 2 (2, 4, 8, 16 ...)
 #define METATILE (8)
 //#undef METATILE
+#define SKIP_EMPTY 1
 
 //Fallback to standard tiles if meta tile doesn't exist
 //Legacy - not needed on new installs

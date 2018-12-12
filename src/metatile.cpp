@@ -87,10 +87,17 @@ void metaTile::save(struct storage_backend * store) {
             int mt = xyz_to_meta_offset(x_ + ox, y_ + oy, z_);
             offsets[mt].offset = offset;
             offsets[mt].size   = tile[ox][oy].size();
-            offset += offsets[mt].size;
+            offset += offsets[mt].size;            
         }
     }
     
+    #ifdef SKIP_EMPTY
+    if (offset == header_size + (103 * ox * oy)) {
+        syslog(LOG_INFO, "Not writing an empty meta tile to disk");
+        return;
+    }
+    #endif
+
     metatilebuffer = (char *) malloc(offset);
     if (metatilebuffer == 0) {
         syslog(LOG_WARNING, "Failed to write metatile. Out of memory");
