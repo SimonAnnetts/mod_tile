@@ -3,9 +3,9 @@ Description=Mapnik Rendering Daemon
 After=network.target auditd.service
 
 [Service]
-PermissionStartOnly=true
-ExecStartPre=-/usr/bin/mkdir /var/run/renderd
-ExecStartPre=-/usr/bin/chown -R osm:osm /var/run/renderd
+PrivateTmp=yes
+RuntimeDirectory=renderd
+RuntimeDirectoryMode=0755
 ExecStart=/usr/local/bin/renderd -f -c /usr/local/etc/custom-renderd.conf
 Restart=always
 User=osm
